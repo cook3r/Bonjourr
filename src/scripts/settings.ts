@@ -274,6 +274,15 @@ function initParams(data: Sync, settingsDom: HTMLElement) {
 		darkmode(this.value as 'auto' | 'system' | 'enable' | 'disable', true)
 	})
 
+	paramId('i_align').addEventListener('change', function () {
+		console.log(this.value)
+
+		const dominterface = $('interface') as HTMLDivElement
+
+		clas(dominterface, this.value === 'left', 'align-left')
+		clas(dominterface, this.value === 'right', 'align-right')
+	})
+
 	paramId('hideelem')
 		.querySelectorAll('button')
 		.forEach((elem: HTMLButtonElement) => {

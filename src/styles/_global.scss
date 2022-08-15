@@ -312,7 +312,7 @@ body {
 		cursor: pointer;
 	}
 
-	label {
+	label:not(.uploadContainer, .alignlbl) {
 		pointer-events: none;
 	}
 

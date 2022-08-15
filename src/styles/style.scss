@@ -63,6 +63,53 @@
 		opacity: 0;
 	}
 
+	@mixin alignment($side: 'left') {
+		$flex: flex-start;
+		$text: left;
+
+		@if $side == 'right' {
+			$flex: flex-end;
+			$text: right;
+		}
+
+		width: 70%;
+		margin: auto;
+
+		#main,
+		#time {
+			align-items: $flex;
+		}
+
+		#greetings,
+		#weather,
+		#widgets #quotes_container,
+		#widgets #quotes_container #author {
+			text-align: $text;
+		}
+
+		#main #weather #tempContainer {
+			justify-content: $flex;
+		}
+
+		#widgets {
+			align-self: $flex;
+
+			#linkblocks,
+			#sb_container {
+				margin: 0;
+				align-self: $flex;
+			}
+		}
+	}
+
+	&.align-left {
+		@include alignment($side: 'left');
+	}
+
+	&.align-right {
+		@include alignment($side: 'right');
+	}
+
 	> * {
 		flex: 1 1 auto;
 		flex-basis: min-content;
